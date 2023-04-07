@@ -1,0 +1,31 @@
+model: "bert-base-cased"
+seed: 42
+training:
+  device: "gpu"
+  batch_size: 16
+  remove_layers: "8,9,10,11"
+  freeze_layers: ""
+  freeze_embeddings: False
+  learning_rate: 2e-5
+  epochs: 1
+  auto_weights: True
+  report_to: "wandb"
+  train_att: True
+  att_lambda: 1
+  num_supervised_heads: 1
+  supervised_layer_pos: 0
+dataset:
+  data_file: "Data/dataset.json"
+  class_names: "Data/classes.npy"
+  num_classes: 3
+  max_length: 128
+  include_special: False
+  type_attention: "softmax"
+  variance: 5.0
+  decay: False
+  window: 4.0
+  alpha: 0.5
+  p_value: 0.8
+  method: "additive"
+  normalized: False
+logging: ""
