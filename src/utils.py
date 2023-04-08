@@ -84,7 +84,7 @@ dict_data_folder = {
 }
 
 
-@conf("params.yml", as_default=True)
+@conf("./params.yml", as_default=True)
 def set_output_dir(**params):
     if not params.get("output_dir", 0):
         default_output_dir = params["model"] + "_" + str(params["dataset"]['max_length'])

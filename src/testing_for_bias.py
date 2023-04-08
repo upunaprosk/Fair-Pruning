@@ -82,12 +82,12 @@ def convert_to_score(label_name, label_dict):
         return label_dict[label_name]
 
 
-@conf("params.yml", as_default=True)
+@conf("./params.yml", as_default=True)
 def standaloneEval(**params):
     log_level = logging.DEBUG if params["logging"] == "debug" else logging.INFO
     logger = set_logger(level=log_level)
     set_seed(params["seed"])
-    params = set_output_dir(params)
+    params = set_output_dir(**params)
     logger.debug("Using parameters")
     logger.debug(params)
     params_dash = {}

@@ -48,7 +48,7 @@ def softmax(x):
     return e_x / e_x.sum(axis=0)
 
 
-@conf("params.yml", as_default=True)
+@conf("./params.yml", as_default=True)
 def train_model(**params):
     log_level = logging.DEBUG if params["logging"] == "debug" else logging.INFO
     logger = set_logger(level=log_level)
@@ -62,7 +62,7 @@ def train_model(**params):
         output_attentions=True
     )
     # default_output_dir: "../bert-base-cased_128_removed_layers_8_9_10_11_attn_softmax_5.0"
-    params = set_output_dir(params)
+    params = set_output_dir(**params)
     training_params = params['training']
     device_ = None
     if not params.get("device", 0):

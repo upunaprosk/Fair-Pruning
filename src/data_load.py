@@ -443,7 +443,7 @@ def custom_att_masks(input_ids):
     return attention_masks
 
 
-@conf("params.yml", as_default=True)
+@conf("./params.yml", as_default=True)
 def combine_features(tuple_data, is_train=False, return_loader=False, **params):
     input_ids = [ele[0] for ele in tuple_data]
     att_vals = [ele[1] for ele in tuple_data]
@@ -489,7 +489,7 @@ def encodeData(dataframe):
     return tuple_new_data
 
 
-@conf("params.yml", as_default=True)
+@conf("./params.yml", as_default=True)
 def createDatasetSplit(**params):
     tokenizer = AutoTokenizer.from_pretrained(
         params["model"],

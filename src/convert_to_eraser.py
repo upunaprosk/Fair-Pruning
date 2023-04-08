@@ -98,7 +98,7 @@ def convert_to_eraser_format(dataset, method, save_split, save_path, id_division
     return final_output
 
 
-@conf("params.yml", as_default=True)
+@conf("./params.yml", as_default=True)
 def generate_eraser_input(**params):
     log_level = logging.DEBUG if params["logging"] == "debug" else logging.INFO
     logger = set_logger(level=log_level)

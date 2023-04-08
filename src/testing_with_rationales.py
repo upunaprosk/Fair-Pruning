@@ -26,7 +26,7 @@ def standaloneEval_with_rational(params, test_data=None, extra_data_path=None, t
     train, val, test = createDatasetSplit(**params)
     test_dataloader = None
 
-    params = set_output_dir(params)
+    params = set_output_dir(**params)
     model = AutoModelForSequenceClassification.from_pretrained(str(params["output_dir"]), output_attentions=True)
     model.eval()
     if extra_data_path is not None:
@@ -155,7 +155,7 @@ def standaloneEval_with_rational(params, test_data=None, extra_data_path=None, t
     return list_dict, test_data
 
 
-@conf("params.yml", as_default=True)
+@conf("./params.yml", as_default=True)
 def get_final_dict_with_rational(topk=5, **params):
     log_level = logging.DEBUG if params["logging"] == "debug" else logging.INFO
     logger = set_logger(level=log_level)
