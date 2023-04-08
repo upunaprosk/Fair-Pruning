@@ -3,6 +3,14 @@ This repository contains code for the paper [Measuring Bias in Pruned Transforme
 
 In that paper, we evaluate bias in compressed models trained on Gab and Twitter speech data and estimate to which extent these pruned models capture the relevant context when classifying the input text as hateful, offensive or neutral. Results of our experiments show that **transformer-based encoders with 70% or fewer preserved weights are prone to gender, racial, and religious identity-based bias, even if the performance loss is insignificant**. We suggest a supervised attention mechanism to counter bias amplification using ground truth per-token hate speech annotation. The proposed method allows pruning BERT, RoBERTa and their distilled versions up to 50% while preserving 90% of their initial performance according to bias and plausibility scores.
 
+___
+*_TL;DR_
+
+Language models with pruned layers are prone to bias. Consider the following example of neutral sentence containing some sensitive attributes. Words in **bold** correspond to top-5 tokens with the largest attention weights.
+<p align="center">
+<img src="https://github.com/upunaprosk/fair-pruning/blob/master/images/bias_example.png" width="400" height="300">
+</p>
+
 ## Dependencies
 
 * python 3.9.16
@@ -138,7 +146,9 @@ If you have ```Out of memory``` GPU error issue during **evaluation**/**predicti
     <summary>Bias and Explainability Evaluation</summary>
  
 Bias measures include AUC measures calculated using (hate) target community annotations: Background Positive Subgroup Negative (BPSN), BNSP, Subgroup AUC. 
-Explainability measures are calculated based on predicted explanations (top tokens with highest attention weights) and true explanations (top tokens marked as descision reasoning by annotators).     
+Explainability measures are calculated based on predicted explanations (top tokens with highest attention weights) and true explanations (top tokens marked as descision reasoning by annotators).    
+
+
 </details>
 
 ## Contact
