@@ -26,7 +26,6 @@ def standaloneEval_with_rational(params, test_data=None, extra_data_path=None, t
     train, val, test = createDatasetSplit(**params)
     test_dataloader = None
 
-    params = set_output_dir(**params)
     model = AutoModelForSequenceClassification.from_pretrained(str(params["output_dir"]), output_attentions=True)
     model.eval()
     if extra_data_path is not None:
@@ -159,10 +158,9 @@ def standaloneEval_with_rational(params, test_data=None, extra_data_path=None, t
 def get_final_dict_with_rational(topk=5, **params):
     log_level = logging.DEBUG if params["logging"] == "debug" else logging.INFO
     logger = set_logger(level=log_level)
-
+    params = set_output_dir(**params)
     list_dict_org, test_data = standaloneEval_with_rational(params, extra_data_path=params['dataset']['data_file'],
                                                             topk=topk)
-    print(test_data)
     test_data_with_rational = convert_data(test_data, params, list_dict_org, rational_present=True, topk=topk)
     list_dict_with_rational, _ = standaloneEval_with_rational(params, test_data=test_data_with_rational, topk=topk,
                                                               use_ext_df=True)

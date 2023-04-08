@@ -303,10 +303,9 @@ def score_classifications(instances: List[dict], annotations: List[Annotation], 
         cls_scores_ = [cls_scores_[k] for k in keys]
         faith_scores_ = [faith_scores_[k] for k in keys]
         return entropy(faith_scores_, cls_scores_)
-
     labels = list(set(x.classification for x in annotations))
-    # labels +=['normal']
-    labels += ['non-toxic']
+    labels +=['normal']
+    # labels += ['non-toxic']
     label_to_int = {l: i for i, l in enumerate(labels)}
     key_to_instances = {inst['annotation_id']: inst for inst in instances}
     truth = []
