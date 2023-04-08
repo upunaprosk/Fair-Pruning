@@ -1,5 +1,5 @@
 # :scissors: Measuring Bias in Pruned Transformers  
-This repository contains code for the paper [Measuring Bias in Pruned Transformers](https://link.springer.com/chapter/10.1007/978-3-031-30047-9_2) accepted to IDA 2023.
+This repository contains code for the paper [Measuring Bias in Pruned Transformers](https://link.springer.com/chapter/10.1007/978-3-031-30047-9_29) accepted to IDA 2023.
 
 In that paper, we evaluate bias in compressed models trained on Gab and Twitter speech data and estimate to which extent these pruned models capture the relevant context when classifying the input text as hateful, offensive or neutral. Results of our experiments show that **transformer-based encoders with 70% or fewer preserved weights are prone to gender, racial, and religious identity-based bias, even if the performance loss is insignificant**. We suggest a supervised attention mechanism to counter bias amplification using ground truth per-token hate speech annotation. The proposed method allows pruning BERT, RoBERTa and their distilled versions up to 50% while preserving 90% of their initial performance according to bias and plausibility scores.
 
