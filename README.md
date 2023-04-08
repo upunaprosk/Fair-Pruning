@@ -153,7 +153,7 @@ Explainability measures are calculated based on predicted explanations (top toke
 
 ## Contact
 
-If you have any question about the project and/or code, you can reach us [here](mailto:irina.proskurina@univ-lyon2.fr).
+If you have any questions about the project and/or code, you can reach us [here](mailto:irina.proskurina@univ-lyon2.fr).
 
 ## Cite
 
