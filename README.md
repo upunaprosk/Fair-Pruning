@@ -159,7 +159,7 @@ If you have any questions about the project and/or code, you can reach us [here]
 
 ```
 @inproceedings{proskurina2023other,
-  title={The Other Side of Compression: Measuring Bias in Pruned Transformers},
+  title={{The Other Side of Compression: Measuring Bias in Pruned Transformers}},
   author={Proskurina, Irina and Metzler, Guillaume and Velcin, Julien},
   booktitle={Advances in Intelligent Data Analysis XXI: 21st International Symposium on Intelligent Data Analysis, IDA 2023, Louvain-la-Neuve, Belgium, April 12--14, 2023, Proceedings},
   pages={366--378},
