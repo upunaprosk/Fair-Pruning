@@ -1,4 +1,5 @@
-# :scissors: Measuring Bias in Pruned Transformers  
+# How pruning affects the fairness of language models?
+
 This repository contains code for the paper [Measuring Bias in Pruned Transformers](https://link.springer.com/chapter/10.1007/978-3-031-30047-9_29) accepted to IDA 2023.
 
 In that paper, we evaluate bias in compressed models trained on Gab and Twitter data and estimate to which extent these pruned models capture the relevant context when classifying the input text as hateful, offensive or neutral. Results of our experiments show that **transformer-based encoders with 70% or fewer preserved weights are prone to gender, racial, and religious identity-based bias, even if the performance loss is insignificant**. We suggest a supervised attention mechanism to counter bias amplification using ground truth per-token hate speech annotation. The proposed method allows pruning BERT, RoBERTa and their distilled versions up to 50% while preserving 90% of their initial performance according to bias and plausibility scores.
@@ -6,10 +7,8 @@ In that paper, we evaluate bias in compressed models trained on Gab and Twitter 
 ___
 *_TL;DR_
 
-Language models with pruned layers are prone to bias. Consider the following example of neutral sentence containing some sensitive attributes. Words in **bold** correspond to top-5 tokens with the largest attention weights.
-<p align="center">
-<img src="https://github.com/upunaprosk/fair-pruning/blob/master/images/bias_example.png" width="400" height="300">
-</p>
+Language models with pruned layers are prone to bias and pay more attention to the words referring to sensitive attributes (gender, race, age, etc.).
+However, supervised attention fine-tuning helps to avoid such biased outcomes.
 
 ## Dependencies
 
@@ -31,6 +30,7 @@ Refer to *full example* usage which is availiable [here](https://github.com/upun
 
 <details>
     <summary>Clone the repository and install the dependencies</summary>
+
     
 ```
 git clone https://github.com/upunaprosk/fair-pruning
@@ -75,6 +75,7 @@ training:
 ```
 
 Use the following command to change default parameters file:
+
 
 ```
 %%bash
@@ -146,7 +147,9 @@ If you have ```Out of memory``` GPU error issue during **evaluation**/**predicti
     <summary>Bias and Explainability Evaluation</summary>
  
 Bias measures include AUC measures calculated using (hate) target community annotations: Background Positive Subgroup Negative (BPSN), BNSP, Subgroup AUC. 
-Explainability measures are calculated based on predicted explanations (top tokens with highest attention weights) and true explanations (top tokens marked as descision reasoning by annotators).    
+Explainability measures are calculated based on predicted explanations (top tokens with highest attention weights) and true explanations (top tokens marked as descision reasoning by annotators). 
+Refer to [Nuanced Metrics for Measuring Unintended
+Bias with Real Data for Text Classification](https://arxiv.org/pdf/1903.04561.pdf) for more detail.
 
 
 </details>
